@@ -1,4 +1,3 @@
-
 FROM alpine
 
 ENV NANODEP_VERSION="0.1.0"
