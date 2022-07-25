@@ -16,8 +16,8 @@ FROM alpine
 VOLUME "/db"
 
 RUN apk --update add ca-certificates
-COPY --from=builder /go/src/github.com/micromdm/nanomdm/depserver-linux-amd64 /usr/local/bin/depserver
-COPY --from=builder /go/src/github.com/micromdm/nanomdm/depsyncer-linux-amd64 /usr/local/bin/depsyncer
+COPY --from=builder /go/src/github.com/micromdm/nanodep/depserver-linux-amd64 /usr/local/bin/depserver
+COPY --from=builder /go/src/github.com/micromdm/nanodep/depsyncer-linux-amd64 /usr/local/bin/depsyncer
 RUN chmod a+x /usr/local/bin/depserver
 RUN chmod a+x /usr/local/bin/depsyncer
 
