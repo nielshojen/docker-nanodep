@@ -21,6 +21,9 @@ COPY --from=builder /go/src/github.com/micromdm/nanodep/depsyncer-linux-amd64 /u
 RUN chmod a+x /usr/local/bin/depserver
 RUN chmod a+x /usr/local/bin/depsyncer
 
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
+
 EXPOSE 9001
 
-ENTRYPOINT ["/usr/local/bin/depserver"]
+CMD ["/run.sh"]
