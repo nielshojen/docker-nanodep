@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV NANODEP_VERSION="0.1.1"
+ENV NANODEP_VERSION="0.2.1"
 
 RUN apk --no-cache add curl
 RUN apk --update add ca-certificates
