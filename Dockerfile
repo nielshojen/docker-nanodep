@@ -21,9 +21,12 @@ COPY --from=builder /go/src/github.com/micromdm/nanodep/depsyncer-linux-amd64 /u
 RUN chmod a+x /usr/local/bin/depserver
 RUN chmod a+x /usr/local/bin/depsyncer
 
-COPY run.sh /run.sh
-RUN chmod a+x /run.sh
+COPY docker-entrypoint.d /docker-entrypoint.d
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN chmod +x /docker-entrypoint.d/*.sh
+RUN chmod a+x /docker-entrypoint.sh
 
 EXPOSE 9001
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
