@@ -18,4 +18,4 @@ RUN chmod a+x /run.sh
 
 EXPOSE 9001
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]

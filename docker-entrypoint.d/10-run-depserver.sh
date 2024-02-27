@@ -7,7 +7,7 @@ execServe="/usr/local/bin/depserver"
 # API Key - Required
 if [[ ! ${API_KEY} ]]; then
   /bin/echo "No API Key Set - Exiting"
-  exit 1
+  exit 0
 else
   execServe="${execServe} -api ${API_KEY}"
 fi
@@ -25,11 +25,11 @@ else
   execServe="${execServe} -storage mysql -storage-dsn '${DBUSER}:${DBPASS}@tcp(${DBHOST:=127.0.0.1}:${DBPORT:=3306})/${DBNAME}'"
 fi
 
-# Port to listen on (default ":9000")
+# Port to listen on (default ":9001")
 if [[ ${LISTEN} ]]; then
   execServe="${execServe} -listen ${LISTEN}"
 fi
 
 echo "Starting using: $execServe"
 
-eval $execServe
+eval $execServe &
