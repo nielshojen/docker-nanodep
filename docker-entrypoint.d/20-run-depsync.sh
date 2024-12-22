@@ -33,8 +33,8 @@ if [[ "${LIMIT}" = "true" ]]; then
 fi
 
 # DSN - Default is file
-if [[ ${DBUSER} ]] && [[ ${DBPASS} ]] && [[ ${DBNAME} ]]; then
-  execServe="${execServe} -storage mysql -storage-dsn '${DBUSER}:${DBPASS}@tcp(${DBHOST:=127.0.0.1}:${DBPORT:=3306})/${DBNAME}'"
+if [[ ${DEP_DBUSER} ]] && [[ ${DEP_DBPASS} ]] && [[ ${DEP_DBNAME} ]]; then
+  execServe="${execServe} -storage mysql -storage-dsn '${DEP_DBUSER}:${DEP_DBPASS}@tcp(${DEP_DBHOST:=127.0.0.1}:${DEP_DBPORT:=3306})/${DEP_DBNAME}'"
 fi
 
 # Port to listen on (default ":9001")
